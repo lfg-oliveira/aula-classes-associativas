@@ -15,6 +15,7 @@ public class App {
         Conta[] conta = new Conta[VET_CONTAS];
 
         String nome, cpf, rg;
+        int qtdePessoas = 0; 
         int op, op2;
         do {
             System.out.println("\n\n===[Menu Principal]===");
@@ -58,7 +59,24 @@ public class App {
                         op2 = leitor.nextInt();
                         switch (op2) {
                             case 1:
+                            int i = 0;
+                                while (pessoas[i] != null || i == VET_PESSOAS)
+                                {
+                                    i++;
+                                }
+                                if(i >= VET_PESSOAS){
+                                    System.out.println("Limite Atingido.");
+                                    break;
+                                }
+                                System.out.println("\n\n===[Cadastro de pessoas]===");
+                                System.out.println("Informe o nome: ");
+                                nome = leitor.next();
+                                System.out.println("Informe o CPF: ");
+                                cpf = leitor.next();
+                                System.out.println("Informe o RG: ");
+                                rg = leitor.next();
                                 
+                                pessoas[i] = new Pessoa(nome, rg, cpf);
                                 break;
                         
                             default:
